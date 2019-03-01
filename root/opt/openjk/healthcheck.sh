@@ -10,7 +10,7 @@ OJK_HOMEPATH="$OJK_DIR/homepath"
 SERVERSTATS_LOG="$OJK_HOMEPATH/$OJK_MOD/serverstats.log"
 PLAYERSTATS_LOG="$OJK_HOMEPATH/$OJK_MOD/playerstats.log"
 TIMESTAMP=`date -u +"%Y-%m-%d %H:%M:%S"`
-UPTIME_LIMIT=86400
+UPTIME_LIMIT=43200
 RET=0
 
 # Load functions
