@@ -1,5 +1,5 @@
 # JKA RPMod server based on OpenJK
-FROM jediholo/rpmod-game
+FROM docker.crespel.me/jediholo/rpmod-game:0.5.1
 LABEL maintainer="Fabien Crespel <fabien@crespel.net>"
 
 # Environment

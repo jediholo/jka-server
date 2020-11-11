@@ -1,0 +1,22 @@
+name: build
+
+on: [push]
+
+env:
+  DOCKER_REGISTRY: docker.crespel.me
+  DOCKER_REPO: jediholo
+  DOCKER_IMAGE: jka-server
+
+jobs:
+  build-docker:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Build image
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} ${DOCKER_REGISTRY}
+        docker build -t ${DOCKER_REGISTRY}/${DOCKER_REPO}/${DOCKER_IMAGE}:$(basename $GITHUB_REF) .
+    - name: Publish image
+      run: |
+        docker push ${DOCKER_REGISTRY}/${DOCKER_REPO}/${DOCKER_IMAGE}:$(basename $GITHUB_REF)
